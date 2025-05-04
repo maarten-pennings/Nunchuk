@@ -1,7 +1,7 @@
 # Nunchuk
 
 An Arduino library to control a Nunchuk.
-It seems Nunchuk is the official spelling, not Nunchu**c**k.
+It seems Nunchuk is the official spelling, not Nunchu_c_k.
 
 
 ## Introduction
@@ -31,7 +31,7 @@ don't tell whether you are looking at the plug of the Nunchuk or the outlet of t
 To avoid all confusion, here a photo of the Nunchuk plug, with the meaning of the pins.
 Also note the notch on the bottom side, ensuring the plug goes in one-way only.
 
-![Nunchuk pinout](Nunchuk-pinout.jpg)
+![Nunchuk pinout](nunchuk-pinout.jpg)
 
 The center pin at the bottom is not connected in my (Ali Express Nunchuk).
 The center pin at the top is connected, rumor goes it is a device-detect pin.
