@@ -1,3 +1,6 @@
+// nunchuk_dump.ino - demo outputing live sensor data from a connected Nunchuk
+
+
 #include <nunchuk.h>
 
 
@@ -5,7 +8,8 @@
 // View the results either
 // - Open Tools > Serial Monitor (the numbers)
 // - Open Tools > Serial Plotter (the numbers graphed)
-// - Start extra/dashboard/dashboard.pde (see https://processing.org/)
+// - Start extras/dashboard/dashboard.pde (after installing https://processing.org/)
+// - Start extras/nunchuk_viewer/nunchuk_viewer.pde (after installing https://processing.org/)
 
 
 void setup() {
@@ -14,6 +18,7 @@ void setup() {
 
   if( !nunchuk_begin() ) { Serial.println("Nunchuk begin failed"); delay(2000); }
 }
+
 
 void loop() {
   if( nunchuk_scan() ) {
