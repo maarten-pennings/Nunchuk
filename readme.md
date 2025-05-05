@@ -4,6 +4,10 @@ An Arduino library to control a Nunchuk.
 
 > It seems [Nunchuk](https://www.nintendo.com/en-gb/Support/Wii/Usage/Nunchuk/Set-Up-and-Use-of-the-Nunchuk/Nunchuk-244185.html) is the official spelling, not Nunchu_c_k.
 
+See a quick demo video with a [dashboard](https://youtu.be/O-drjiKqLoY) or with a [3D view](https://youtu.be/ZG64M4cBJL8).
+
+[![Dashboard in processing](extras/dashboard.png)](https://youtu.be/O-drjiKqLoY) [![Nunchuk viewer in processing](extras/nunchuk_viewer.png)](https://youtu.be/ZG64M4cBJL8)
+
 
 ## Introduction
 
@@ -166,7 +170,7 @@ There are several ways to view those outputs.
   
   ![Serial plotter](extras/plotter.png)
   
-- If you want a fancy demo, download [Processing](https://processing.org/)
+- If you want a fancy view, download [Processing](https://processing.org/)
   a free graphics library and IDE, built for visual design. The _Processing_ language and IDE is
   the precursor to other projects including Arduino.
 
@@ -177,7 +181,15 @@ There are several ways to view those outputs.
   
   ![Dashboard in processing](extras/dashboard.png)
 
+- The most fancy viewer, there is a second Processing visualization.
+  Run the [Nunchuk viewer](extras/nunchuk_viewer) processing sketch.
+  This draws the Nunchuk live, following its actual orientation, and even animating pressing on the buttons or the joystick.
 
+  Again, have [nunchuk_dump.ino](examples/nunchuk_dump) running on the ESP8266 connected to the PC.
+
+  ![Nunchuk viewer in processing](extras/nunchuk_viewer.png)
+
+  
 ## Implementation notes
 
 The Nunchuk device is rather simple to control.
