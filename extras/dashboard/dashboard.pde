@@ -1,7 +1,7 @@
 // dashboard.pde - Processing sketch to visualize a Nunchuk sensor values
 
 // Get Processing: https://processing.org/download 
-// Run this while the ESP with Nunchuk, running the Arduino code, is connected to the PC.
+// Run this while the ESP with Nunchuk, running the Arduino code of nunchuk_dump.ino, is connected to the PC.
 // Make sure Arduino IDE does NOT have the serial port open.
 
 // Note: the accelerometers measure earth's G-force, so Nunchuk rotations around the 
