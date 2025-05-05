@@ -11,18 +11,18 @@ I found out a Nunchuk is actually an I2C device.
 It has I2C address 0x52 and uses the "standard-mode" bus speed (100kHz).
 It runs on 3.3V - although rumors has it that (cloned?) Nunchuks work on 5V too.
 
-The device needs hardly any writing; controlling it mostly means just reading the sensors.
+The device needs hardly any I2C writes; controlling it mostly means just I2C reads for the sensors.
 The Nunchuk has the following sensors:
- - The Z-button (1 bit)
- - The C-button (1 bit)
- - A potentiometer for the horizontal axis in the joystick (8 bit) 
- - A potentiometer for the vertical axis in the joystick (8 bit) 
- - An accelerometer in the X, Y, and Z direction (10 bit each)
+ - The Z-button (1 bit).
+ - The C-button (1 bit).
+ - A potentiometer for the horizontal axis in the joystick (8 bit). 
+ - A potentiometer for the vertical axis in the joystick (8 bit).
+ - An accelerometer in the X, Y, and Z direction (10 bit each).
 
 
 ## Clones
 
-You can use a real Nunchuk or get a [clone][https://www.aliexpress.com/item/1005006424861864.html]
+You can use a real Nunchuk or get a [clone](https://www.aliexpress.com/item/1005006424861864.html)
 for your experiments.
 
 To my surprise my clone is better in _all_ (?) I2C aspects.
@@ -33,7 +33,6 @@ To my surprise my clone is better in _all_ (?) I2C aspects.
 - Also the accelerometer meter range of the real device is reduced -192 to 197 (it is 10 bit so one would expect -512 to +511).
 - An I2C read needs two transactions stop/start and stop/start, my clone accepts the normal start/repeated-start/stop.
 - The real Nunchuk needs some delays between I2C transactions, my clone not.
-
 
 
 ## Wiring
@@ -57,10 +56,10 @@ For once that works better with the real Nunchuk, its holes are bigger.
 For the clone, I was afraid I would damage the "springs" inside the connector, 
 so I unscrewed the top of the connector and used clips instead of jumper wires.
 
-The jumper wires are wired a breadboard.
-Safest is to use a 3V3 Arduino, I opted for an ESP8266.
-The wires from the Nunchuk go to power (red to 3V3 and blavk to GND)
-and to I2C (blue to SDA here D2 and green to SCL here D1).
+The jumper wires are wired to a breadboard.
+Safest is to use a 3V3 Arduino (not 5V), I opted for an ESP8266.
+The wires from the Nunchuk go to power (red to 3V3 and black to GND)
+and to I2C (blue to SDA, for ESP8266 pin D2 and green to SCL, for ESP8266 pin D1).
 
 ![Breadboard](extras/breadboard.jpg)
 
@@ -69,7 +68,7 @@ The whole setup looks like this.
 ![Overview](extras/wiring.jpg)
 
 By the way, Adafruit makes a nice breakout board, a simple [one](https://www.adafruit.com/product/345)
-with just the mechanics, and a advanced [one](https://www.adafruit.com/product/4836) with their
+with just the mechanics, and an advanced [one](https://www.adafruit.com/product/4836) with their
 I2C connector. More details cab be found on the [Adafruit website](https://learn.adafruit.com/adafruit-wii-nunchuck-breakout-adapter).
 
 
@@ -82,12 +81,13 @@ To use the library
   
 - In your sketch include the library `#include <nunchuk.h>`.
 
-- In `setup()` "begin" the driver with
+- In `setup()` "begin" the driver with `nunchuk_begin()`.
+  
+  The function `nunchuk_begin()` returns `false` if initialization failed,
+  so a possible call could be
   `if( !nunchuk_begin() ) Serial.println("Nunchuk begin failed");`.
-  
-  The function `nunchuk_begin()` returns `false` if initialization failed.
-  
-  To make starting easy, `nunchuk_begin()` also "begins" I2C.
+    
+  To make using the library easy, `nunchuk_begin()` also "begins" I2C.
   If you want to be in control of the I2C peripheral, e.g. because you do not use the default pins,
   you can "begin" I2C yourself and then pass it to `nunchuk_begin()`:
   
@@ -98,7 +98,7 @@ To use the library
     ...
     Wire.begin();          // may pass other SCL/SAD pins
     Wire.setClock(150000); // higher bus speed
-    if( !nunchuk_begin(&Wire) ) Serial.println("Nunchuk begin failed"); delay(2000);
+    if( !nunchuk_begin(&Wire) ) Serial.println("Nunchuk begin failed");
     ...
   }
   ```
@@ -114,17 +114,17 @@ To use the library
   - Joystick `nunchuk_joystickX()` and `nunchuk_joystickY()`.
   - The accelerometers `nunchuk_accelX()`, `nunchuk_accelY()`, and `nunchuk_accelZ()`.
 
-- The accelerometer readouts are a bit jumpy.
-  As an extra feature, the library contains a so called low-pass filter (LPF).
-  This is sort of an average of the last "n" measurements.
+- The accelerometer readouts are a bit jumpy (noisy).
+  As an extra feature, the library contains a so called low-pass filter (LPF) to mittigate the noisyness.
+  This feature compiutes a sort of an average of the last "n" measurements (for X, Y, and Z).
   
-  To use the low pass filter, the averages needs to be updated, so after
-  `nunchuk_scan()` call `nunchuk_lpf(n)`. The parameter n must be between 0 and 1024,
-  it defaults to 750. Next, use the ..lpf functions for the accelerometer getters
+  To use the low pass filter, the averages needs to be updated; after each
+  `nunchuk_scan()` call, also call `nunchuk_lpf(n)`. The parameter `n` must be between 0 and 1024,
+  it defaults to 750. Next, use the ..lpf functions for the accelerometer data
   `nunchuk_accelXlpf()`, `nunchuk_accelYlpf()`, and `nunchuk_accelZlpf()`.
   
 - The accelerometers measure the earth's G-force, so Nunchuk rotations around the 
-  Z-axis, that is the X/Y plane, can not be measured.
+  Z-axis, that is in the X/Y plane, can not be measured.
 
   ![Accelerometer axis](extras/axis.png)
   
@@ -161,21 +161,21 @@ There are several ways to view those outputs.
   See this [patch](https://github.com/maarten-pennings/howto/blob/main/arduino2.0-wideplot/arduino2.0-wideplot.md)
   if you want it longer.
   
-  Below is a screenshot of my plotter window, just showing the joystick, 
-  where I moved the joystick in all 8 extreme positions.
+  Below is a screenshot of my plotter window, just showing the joystick X and Y, 
+  while I moved the joystick in all 8 extreme positions.
   
   ![Serial plotter](extras/plotter.png)
   
 - If you want a fancy demo, download [Processing](https://processing.org/)
-  a free graphics library and IDE, built for visual design. Processing language and IDE is
+  a free graphics library and IDE, built for visual design. The _Processing_ language and IDE is
   the precursor to other projects including Arduino.
 
-  Once installed, make sure the Arduino  is running [nunchuk_dump.ino](examples/nunchuk_dump),
-  is connected (via USB) to the PC, Arduino (or any other tool) is not having the COM port open,
-  and start the [dashboard](extras/dashboard/dashboard.pde) I made in processing.
+  Once installed, make sure the ESP8266 is running [nunchuk_dump.ino](examples/nunchuk_dump),
+  the ESP8266 is connected (via USB) to the PC, the Arduino IDE (or any other tool) is not
+  having the COM port open, and then start the [dashboard](extras/dashboard/dashboard.pde) I made,
+  in Processing (if Processing is installed, a double click will do).
   
   ![Dashboard in processing](extras/dashboard.png)
-
 
 
 ## Implementation notes
@@ -184,9 +184,8 @@ The Nunchuk device is rather simple to control.
 Two writes are needed to "get started"; you find them in `nunchuk_begin()`.
 
 Next the MCU needs to constantly poll the Nunchuk for the sensor data.
-You find that in `nunchuk_scan()`. The block of sensor data is 6 bytes, 
+You find that in `nunchuk_scan()`. The block of sensor data thus retrieved is 6 bytes, 
 and the values are allocated as shown in the table below.
-
 
 ```
   +-------+-------+-------+-------+-------+-------+-------+-------+-------+
@@ -203,10 +202,12 @@ and the values are allocated as shown in the table below.
   +-------+-------+-------+-------+-------+-------+-------+-------+-------+
 ```
 
+Note 
+
 - The two buttons (Z and C) are "low active".
   The driver inverts them, so `nunchuk_buttonZ()` and `nunchuk_buttonC()` return 1 when pressed.
   
-- The joystick consists of two analogue potentiometers (for "X" and "Y").
+- The joystick consists of two analogue potentiometers (for the "X" and "Y" axis).
   The I2C interface reports one byte for each axis. 
   The value 128 is supposed to be the center position; for the clone it is, the real Nunchuk is off a bit.
   The driver subtracts this 128 and reports a value between -128 and +127 for `nunchuk_joystickX()` and `nunchuk_joystickY()`.
@@ -228,6 +229,3 @@ and the values are allocated as shown in the table below.
 
 
 (end)
-  
-  
-  
