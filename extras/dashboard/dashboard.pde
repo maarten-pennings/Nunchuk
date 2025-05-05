@@ -1,4 +1,4 @@
-// dashboard.pde - Processing sketch to visualize a Nunchuk sensor values
+// dashboard.pde - Processing sketch to visualize Nunchuk sensor values
 
 // Get Processing: https://processing.org/download 
 // Run this while the ESP with Nunchuk, running the Arduino code of nunchuk_dump.ino, is connected to the PC.
@@ -31,24 +31,28 @@ void draw() {
   try { vals = int(splitTokens(str,": ")); } catch(Exception e) { return; } 
   if( vals.length!=15 )  { return; }
   // Supposed to read "Z:1 C:0 joyX:-7 joyY:5 accelX:-182 accelY:-89 accelZ:102\n"
-  // Indeces           0 1 2 3 4    5  6    7 8      9    10     11  12     13 14
+  // Indices           0 1 2 3 4    5  6    7 8      9    10     11  12     13 14
   
   background(160, 160, 160);
   textSize(20);
   
-  float butc= vals[3]; 
+  fill(20,20,20); 
+  text("Nunchuk", 20, 450-2*font); 
+  text("Dashboard", 20, 450-1*font); 
+  
+  int butc= vals[3]; 
   int y=sep;
   fill(20,20,20); text("C", 200-2*font, y+font); 
-  if( butc>0.5 ) fill(255,0,0); else fill(200,200,200);
+  if( butc==1 ) fill(255,0,0); else fill(200,200,200);
   rect(200-unit/2,y, unit,unit);
 
-  float butz= vals[1]; 
+  int butz= vals[1]; 
   y+=unit+sep;
   fill(20,20,20); text("Z", 200-2*font, y+font); 
-  if( butz>0.5 ) fill(255,0,0); else fill(200,200,200);
+  if( butz==1 ) fill(255,0,0); else fill(200,200,200);
   rect(200-unit/2,y, unit,unit); 
   
-  float joyx= vals[5]; 
+  int joyx= vals[5]; 
   y+=unit+sep;
   fill(20,20,20); text("joyx", 200-128, y-font+font/2); 
   fill(200,200,200);
@@ -59,7 +63,7 @@ void draw() {
   else
     rect(200,y, joyx, unit);
 
-  float joyy= vals[7]; 
+  int joyy= vals[7]; 
   y+=unit+sep;
   fill(20,20,20); text("joyy", 200-unit/2-2*font, y+font); 
   fill(200,200,200);
@@ -70,7 +74,7 @@ void draw() {
   else
     rect(200-unit/2,y+128-joyy, unit,joyy);
 
-  float accelx = vals[9];
+  int accelx = vals[9];
   int x= 200+unit/2+sep+sep;
   fill(20,20,20); text("x", x, y+256+font); 
   fill(200,200,200);
@@ -81,7 +85,7 @@ void draw() {
   else
     rect(x,y+128-accelx/2, unit/2,accelx/2);
     
-  float accely = vals[11];
+  int accely = vals[11];
   x+= unit/2+sep;
   fill(20,20,20); text("y", x, y+256+font); 
   fill(200,200,200);
@@ -92,7 +96,7 @@ void draw() {
   else
     rect(x,y+128-accely/2, unit/2,accely/2);
   
-  float accelz = vals[13];
+  int accelz = vals[13];
   x+= unit/2+sep;
   fill(20,20,20); text("z", x, y+256+font); 
   fill(200,200,200);
