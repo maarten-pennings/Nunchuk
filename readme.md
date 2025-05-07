@@ -100,9 +100,8 @@ To use the library
   
   void setup() {
     ...
-    Wire.begin();          // may pass other SCL/SAD pins
-    Wire.setClock(150000); // higher bus speed
-    if( !nunchuk_begin(&Wire) ) Serial.println("Nunchuk begin failed");
+    Wire.begin(7/*sda*/, 9/*scl*/, 100*1000); // ESP32-C3 super mini, skipping SDA on pin 8 (it also has LED)
+    if( !nunchuk_begin(&Wire) ) { Serial.println("Nunchuk begin failed"); delay(20000); }
     ...
   }
   ```
