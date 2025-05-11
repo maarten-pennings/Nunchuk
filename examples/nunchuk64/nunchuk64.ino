@@ -30,12 +30,12 @@ const int led_on    = 0;
 const int pin_sda   = 7;
 const int pin_scl   = 9;
 
-// Pins (and values) for  joystick outputs
+// Pins (and values) for  joystick outputs (order as C64 port)
 const int pin_fire  = 0;
 const int pin_north = 1;
-const int pin_east  = 2;
-const int pin_south = 3;
-const int pin_west  = 4;
+const int pin_south = 2;
+const int pin_west  = 3;
+const int pin_east  = 4;
 const int joy_off   = 0; // Via open drain n-channel mosfet (BS138)
 const int joy_on    = 1;
 const int joy_min   =25;
