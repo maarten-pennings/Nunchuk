@@ -8,7 +8,7 @@
 // upon action (here the fire button is pressed): state over Serial, also LED switches on
 //
 // Welcome at nunchuk64.ino
-// 20250508 Maarten Pennings
+// 20250511 Maarten Pennings
 //
 // 1 F1 N0 E0 S0 W0
 // 2 F1 N0 E0 S0 W0
@@ -38,12 +38,13 @@ const int pin_south = 3;
 const int pin_west  = 4;
 const int joy_off   = 0; // Via open drain n-channel mosfet (BS138)
 const int joy_on    = 1;
+const int joy_min   =25;
 
 
 // System state
 int count;  // Number of actions
 int fatal;  // Set if there was a fatal error
-int errors; // Counts number of failed scan() attempts
+int errors; // Counts number of failed scan() attempts (move to fatal if too many)
 
 
 void setup() {
@@ -59,9 +60,9 @@ void setup() {
   Serial.begin(115200);
   Serial.print("\n\n\n");
   Serial.print("Welcome at nunchuk64.ino\n");
-  Serial.print("20250508 Maarten Pennings\n\n");
+  Serial.print("20250511 Maarten Pennings\n\n");
 
-  // Init error flags
+  // Init system state
   count=0;
   fatal=0;
   errors=0;
@@ -94,26 +95,27 @@ void loop() {
   // Bail out if fatal
   if( fatal ) return;
 
-  // Read nunchuk (if too many fails, go fatal)
+  // Read Nunchuk (if too many fails, go fatal)
   if( ! nunchuk_scan() ) {
     errors++;
-    if( errors>50 ) { 
-      fatal= true;
+    if( errors>10 ) { 
+      fatal= 1;
       Serial.println("scan() failed"); 
       digitalWrite(pin_led, led_on);
     }
+    delay(100);
     return;
   }
   errors=0; // scan() successful; reset counter
 
-  // No need fo accelerometer, so no lpf filter
+  // No need for accelerometer, so no low-pass filter
 
   // Determine state for the 5 joystick outputs
   int fire  = nunchuk_buttonZ() || nunchuk_buttonC();
-  int north = nunchuk_joystickY() > +20 ;
-  int east  = nunchuk_joystickX() > +20 ;
-  int south = nunchuk_joystickY() < -20 ;
-  int west  = nunchuk_joystickX() < -20 ;
+  int north = nunchuk_joystickY() > +joy_min ;
+  int east  = nunchuk_joystickX() > +joy_min ;
+  int south = nunchuk_joystickY() < -joy_min ;
+  int west  = nunchuk_joystickX() < -joy_min ;
 
   // Is there any activity, print and show on LED
   int action = fire || north || east || south || west;
