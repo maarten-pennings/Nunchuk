@@ -73,7 +73,7 @@ The whole setup looks like this.
 
 By the way, Adafruit makes a nice breakout board, a simple [one](https://www.adafruit.com/product/345)
 with just the mechanics, and an advanced [one](https://www.adafruit.com/product/4836) with their
-I2C connector. More details cab be found on the [Adafruit website](https://learn.adafruit.com/adafruit-wii-nunchuck-breakout-adapter).
+I2C connector. More details can be found on the [Adafruit website](https://learn.adafruit.com/adafruit-wii-nunchuck-breakout-adapter).
 
 
 ## Using the library
@@ -237,6 +237,12 @@ Note
   - [bootlin](https://bootlin.com/labs/doc/nunchuk.pdf)
   - [wiibre](https://wiibrew.org/wiki/Wiimote/Extension_Controllers/Nunchuck)
   - [WiiChuck](https://github.com/madhephaestus/WiiChuck)
+
+
+## C64
+
+My ultimate goal was to make a Commodore-64 yo Nunchuk adapter.
+You'll find the PCB design also in this [repo](extras/pcb).
 
 
 (end)
