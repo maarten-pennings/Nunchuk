@@ -118,7 +118,7 @@ To use the library
   - The accelerometers `nunchuk_accelX()`, `nunchuk_accelY()`, and `nunchuk_accelZ()`.
 
 - The accelerometer readouts are a bit jumpy (noisy).
-  As an extra feature, the library contains a so called low-pass filter (LPF) to mittigate the noisyness.
+  As an extra feature, the library contains a so called low-pass filter (LPF) to mitigate the noisyness.
   This feature compiutes a sort of an average of the last "n" measurements (for X, Y, and Z).
   
   To use the low pass filter, the averages needs to be updated; after each
@@ -230,7 +230,7 @@ Note
   The driver subtracts this 512 and reports a value between -512 and +511 for `nunchuk_accelX()`, 
   `nunchuk_accelY()`, and `nunchuk_accelZ()`.
   
-- The low pass filter is a simple "first order lowpass filter" 
+- The low pass filter is a simple "first order low-pass filter" 
   ([ref](https://dsp.stackexchange.com/questions/39063/simple-software-low-pass-filter)).
   
 - I was inspired by these sources
@@ -241,7 +241,7 @@ Note
 
 ## C64
 
-My ultimate goal was to make a Commodore-64 yo Nunchuk adapter.
+My ultimate goal was to make a Commodore-64 to Nunchuk adapter.
 You'll find the PCB design also in this [repo](extras/pcb).
 
 
