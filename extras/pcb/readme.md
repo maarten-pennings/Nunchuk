@@ -15,7 +15,7 @@ I made an adapter enabling me to plug a Nunchuk into a Commodore 64.
 
 I picked the [ESP32-C3 SuperMini](https://www.aliexpress.com/item/1005007539612437.html).
 
-This is the [firmware](../examples/nunchuk64).
+This is the [firmware](../../examples/nunchuk64).
 At this moment C and Z both fire, maybe I'll make Z into an auto fire button.
 
 
@@ -44,7 +44,7 @@ I hope I got the dimensions correct.
 Of course the C64 cable should attach to the PCB from one side, and the Nunchuk cable from the other side of the PCB.
 Since I might want to reuse this PCB for a PC-Nunchuk adapter, the "PC cable" (USB) should be on the same side as the C64 cable.
 
-This is the layout [front](Nunchuk64_pcb_front.pdf)/[back](Nunchuk64_pcb_back.pff) and the [EasyEDA sources](Nunchuk64_pcb.json).
+This is the layout [front](Nunchuk64_pcb_front.pdf)/[back](Nunchuk64_pcb_back.pdf) and the [EasyEDA sources](Nunchuk64_pcb.json).
 
 Renders
 
