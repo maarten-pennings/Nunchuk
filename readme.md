@@ -2,7 +2,7 @@
 
 An Arduino library to control a Nunchuk.
 
-> It seems [Nunchuk](https://www.nintendo.com/en-gb/Support/Wii/Usage/Nunchuk/Set-Up-and-Use-of-the-Nunchuk/Nunchuk-244185.html) is the official spelling, not Nunchu_c_k.
+> It seems [Nunchuk](https://www.nintendo.com/en-gb/Support/Wii/Usage/Nunchuk/Set-Up-and-Use-of-the-Nunchuk/Nunchuk-244185.html) is the official spelling for the game controller, not Nunchu_c_k.
 
 See a quick demo video with a [dashboard](https://youtu.be/O-drjiKqLoY) or with a [3D view](https://youtu.be/ZG64M4cBJL8).
 
