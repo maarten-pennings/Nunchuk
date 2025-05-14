@@ -38,15 +38,14 @@ I wanted the PCB to be small. Therefore, I placed the ESP on one side, and the M
 I'm not yet sure if I will solder the ESP board directly on my board (castellated pads).
 Very likely I will raise it a bit to keep the USB connector reachable.
 
-For the Nunchuk I used the trick I saw at [Adafruit](https://learn.adafruit.com/adafruit-wii-nunchuck-breakout-adapter).
-I hope I got the dimensions correct.
+For the Nunchuk connector I used the trick I saw at [Adafruit](https://learn.adafruit.com/adafruit-wii-nunchuck-breakout-adapter).
+The PCB is shaped into a connector, with a mechanical lock. I hope I got the PCB dimensions correct.
 
 Of course the C64 cable should attach to the PCB from one side, and the Nunchuk cable from the other side of the PCB.
 Since I might want to reuse this PCB for a PC-Nunchuk adapter, the "PC cable" (USB) should be on the same side as the C64 cable.
 
 This is the layout [front](Nunchuk64_pcb_front.pdf)/[back](Nunchuk64_pcb_back.pdf) and the [EasyEDA sources](Nunchuk64_pcb.json).
-
-Renders
+Here are some renders
 
 ![front](Nunchuk64_render_front.png) ![back](Nunchuk64_render_back.png) ![3D](Nunchuk64_render_3d.png)
 
