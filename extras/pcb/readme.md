@@ -13,7 +13,10 @@ I made an adapter enabling me to plug a Nunchuk into a Commodore 64.
 - A signaling LED would be nice.
 - Arduino compatibility would be nice.
 
-I picked the [ESP32-C3 SuperMini](https://www.aliexpress.com/item/1005007539612437.html).
+I picked the [ESP32-C3 SuperMini](https://www.aliexpress.com/item/1005007539612437.html)
+which is 18×22mm²:
+
+![ESP32-C3](esp32c3.jpg)
 
 This is the [firmware](../examples/nunchuk64).
 At this moment C and Z both fire, maybe I'll make Z into an auto fire button.
@@ -29,6 +32,10 @@ The  obtained values are mapped to 5 GPIO pins.
 I used N-channel MOSFETS as level shifters to mimic a switch that connects one of the 5 joystick pins to ground.
 
 This is the [schematics](Nunchuk64_schem.pdf) and the [EasyEDA sources](Nunchuk64_schem.json).
+
+Always tricky: the pinout of the connector and the plug.
+
+![C64 joystick pinout](c64-joystick-pinout.png)
 
 
 ## Layout
@@ -46,14 +53,22 @@ Since I might want to reuse this PCB for a PC-Nunchuk adapter, the "PC cable" (U
 
 This is the layout [front](Nunchuk64_pcb_front.pdf)/[back](Nunchuk64_pcb_back.pff) and the [EasyEDA sources](Nunchuk64_pcb.json).
 
-Renders
-
 ![front](Nunchuk64_render_front.png) ![back](Nunchuk64_render_back.png) ![3D](Nunchuk64_render_3d.png)
 
 
-## Gerber
+## PCB
 
 This is the [Gerber](Nunchuk64_gerber.zip) I sent to [JLCPCB](https://jlcpcb.com/DMP)
+
+The un-assembled PCB arrived in 8 days.
+
+![PCB](pcb.jpg)
+
+Next step was assembly.
+
+![Assembled](assembled.jpg)
+
+and testing - it works!
 
 
 (end)
