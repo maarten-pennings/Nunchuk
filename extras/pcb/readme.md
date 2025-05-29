@@ -30,8 +30,11 @@ It also obtains the C and Z button status.
 The  obtained values are mapped to 5 GPIO pins.
 
 I used N-channel MOSFETS as level shifters to mimic a switch that connects one of the 5 joystick pins to ground.
+The schematics below shows it once, for the fire button.
 
-This is the [schematics](Nunchuk64_schem.pdf) and the [EasyEDA sources](Nunchuk64_schem.json).
+![MOSFET](mosfet.png)
+
+This is the full [schematics](Nunchuk64_schem.pdf) and the [EasyEDA sources](Nunchuk64_schem.json).
 
 Always tricky: the pinout of the connector and the plug.
 
@@ -54,10 +57,7 @@ Since I might want to reuse this PCB for a PC-Nunchuk adapter, the "PC cable" (U
 This is the layout [front](Nunchuk64_pcb_front.pdf)/[back](Nunchuk64_pcb_back.pdf) and the [EasyEDA sources](Nunchuk64_pcb.json).
 Here are some renders
 
-![front](Nunchuk64_render_front.png) ![back](Nunchuk64_render_back.png) ![3D](Nunchuk64_render_3d.png)
-
-
-## PCB
+![render](Nunchuk64_render.jpg)
 
 This is the [Gerber](Nunchuk64_gerber.zip) I sent to [JLCPCB](https://jlcpcb.com/DMP)
 
@@ -65,11 +65,54 @@ The un-assembled PCB arrived in 8 days.
 
 ![PCB](pcb.jpg)
 
+
+## Assembly 
+
 Next step was assembly.
 
 ![Assembled](assembled.jpg)
 
-and testing - it works!
+Then designing a two-part case: [floor](Floor.stl) and [roof](Roof.stl).
+
+![roof and floor](roof-floor.jpg)
+
+Below the filament printed result
+
+![casing](casing.jpg)
+
+The "end-product" fully assembled and encased.
+
+![cable](cable.jpg)
+
+With the Nunchuk connected.
+
+![connected](connected.jpg)
+
+The blue LED flashes on power-up and when one of the five joystick functions is activated.
+
+![powered](powered.jpg)
+
+
+
+
+
+## Bill of material
+
+Shipping is more expensive than the components.
+Below table does not include 3D printing nor the 4 bolts and nuts.
+However, I do now have 4 PCBs left and 95 MOSFETs...
+
+
+  | Item                                         | Quantity |Unit price| Total |Shipping | Example                                                       |
+  |:---------------------------------------------|:--------:|:--------:|:-----:|:-------:|:--------------------------------------------------------------| 
+  | ESP32-C3 SuperMini                           |     1    |  €2.90   | €2.90 |   €1.99 | [link](https://www.aliexpress.com/item/1005007539612437.html) |
+  | BSS138 N-channel mosfet                      |     5    |  €0.0153 | €0.08 |   €1.99 | [link](https://www.aliexpress.com/item/1005004633792799.html) |
+  | Sega Genesis 2 (Mega Drive 2) joystick cable |     1    |  €2.70   | €2.70 |   €1.99 | [link](https://www.aliexpress.com/item/1005006855342759.html) |
+  | Nunchuk (clone)                              |     1    |  €4.59   | €4.59 |   €1.99 | [link](https://www.aliexpress.com/item/1005006424861864.htm)  |
+  | PCB (LJCPCB)                                 |     1    |  €0.35   | €0.35 |   €6.62 |                                                               |
+  |                                              |          |          |       |         |                                                               |
+  |                                              |          |          |€10.62 |  €14.58 |                                                               |
+  |                                              |          |          |       |  €25.20 |                                                               |
 
 
 (end)
