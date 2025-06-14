@@ -108,11 +108,12 @@ However, I do now have 4 PCBs left and 95 MOSFETs...
   | ESP32-C3 SuperMini                           |     1    |  €2.90   | €2.90 |   €1.99 | [link](https://www.aliexpress.com/item/1005007539612437.html) |
   | BSS138 N-channel mosfet                      |     5    |  €0.0153 | €0.08 |   €1.99 | [link](https://www.aliexpress.com/item/1005004633792799.html) |
   | Sega Genesis 2 (Mega Drive 2) joystick cable |     1    |  €2.70   | €2.70 |   €1.99 | [link](https://www.aliexpress.com/item/1005006855342759.html) |
-  | Nunchuk (clone)                              |     1    |  €4.59   | €4.59 |   €1.99 | [link](https://www.aliexpress.com/item/1005006424861864.html)  |
-  | PCB (LJCPCB)                                 |     1    |  €0.35   | €0.35 |   €6.62 |                                                               |
+  | Nunchuk (clone)                              |     1    |  €4.59   | €4.59 |   €1.99 | [link](https://www.aliexpress.com/item/1005006424861864.html) |
+  | PCB (JLCPCB)                                 |     1    |  €0.35   | €0.35 |   €6.62 |                                                               |
+  | Enclosure (JLCPCB)                           |     1    |  €1.78   | €1.78 |   €1.33 |                                                               |
   |                                              |          |          |       |         |                                                               |
-  |                                              |          |          |€10.62 |  €14.58 |                                                               |
-  |                                              |          |          |       |  €25.20 |                                                               |
+  |                                              |          |          |€12.40 |  €15.91 |                                                               |
+  |                                              |          |          |       |  €28.31 |                                                               |
 
 
 (end)
