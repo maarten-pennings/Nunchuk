@@ -4,7 +4,7 @@ An Arduino library to control a Nunchuk.
 
 > It seems [Nunchuk](https://www.nintendo.com/en-gb/Support/Wii/Usage/Nunchuk/Set-Up-and-Use-of-the-Nunchuk/Nunchuk-244185.html) is the official spelling for the game controller, not Nunchu_c_k.
 
-The ultimate goal is to hookup a Nunchuk to a commodore [64](#c64).
+The ultimate goal is to hookup a Nunchuk to a [Commodore 64](#c64).
 
 See a quick demo video with a [dashboard](https://youtu.be/O-drjiKqLoY) or with a [3D view](https://youtu.be/ZG64M4cBJL8).
 
@@ -237,7 +237,7 @@ Note
   
 - I was inspired by these sources
   - [bootlin](https://bootlin.com/labs/doc/nunchuk.pdf)
-  - [wiibre](https://wiibrew.org/wiki/Wiimote/Extension_Controllers/Nunchuck)
+  - [wiibrew](https://wiibrew.org/wiki/Wiimote/Extension_Controllers/Nunchuck)
   - [WiiChuck](https://github.com/madhephaestus/WiiChuck)
 
 
