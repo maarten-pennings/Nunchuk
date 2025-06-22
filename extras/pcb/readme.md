@@ -127,8 +127,8 @@ The "end-product" fully assembled and encased.
 ## Bill of material
 
 Shipping is more expensive than the components.
-Below table does not include 3D printing nor the 4 bolts and nuts.
-However, I do now have 4 PCBs left and 95 MOSFETs...
+Below table does not include the 4 bolts and nuts;
+but I do now have spare PCBs and MOSFETs...
 
 
   | Item                                         | Quantity |Unit price| Total |Shipping | Example                                                       |
