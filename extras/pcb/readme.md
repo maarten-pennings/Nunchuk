@@ -69,6 +69,18 @@ The un-assembled PCB arrived in 8 days.
 ## Assembly 
 
 Next step was assembly.
+The ESP32 is raised a bit (by placing a credit card under it) so that
+I can still plug in a USB connector.
+
+![ESP32 raised (front)](solder1.jpg)
+
+![ESP32 raised (side)](solder2.jpg)
+
+Next come the five MOSFETs and then the joystick cable.
+
+![Joystick cable and MOSFETs](solder3.jpg)
+
+This is the complete assembly.
 
 ![Assembled](assembled.jpg)
 
@@ -80,17 +92,33 @@ Below the filament printed result
 
 ![casing](casing.jpg)
 
+### First sample
+
 The "end-product" fully assembled and encased.
 
-![cable](cable.jpg)
+![cable v1](cable.jpg)
 
 With the Nunchuk connected.
 
-![connected](connected.jpg)
+![connected v1](connected.jpg)
 
 The blue LED flashes on power-up and when one of the five joystick functions is activated.
 
-![powered](powered.jpg)
+![powered v1](powered.jpg)
+
+### Second sample
+
+I made a second one: fully black and the case 3D printed with an SLA printer.
+
+![powered1 v2](powered-v2.jpg)
+
+![powered2 v2](powered2-v2.jpg)
+
+The "end-product" fully assembled and encased.
+
+![cable1 v2](cable-v2.jpg)
+
+![cable2 v2](cable2-v2.jpg)
 
 
 
@@ -110,7 +138,7 @@ However, I do now have 4 PCBs left and 95 MOSFETs...
   | Sega Genesis 2 (Mega Drive 2) joystick cable |     1    |  €2.70   | €2.70 |   €1.99 | [link](https://www.aliexpress.com/item/1005006855342759.html) |
   | Nunchuk (clone)                              |     1    |  €4.59   | €4.59 |   €1.99 | [link](https://www.aliexpress.com/item/1005006424861864.html) |
   | PCB (JLCPCB)                                 |     1    |  €0.35   | €0.35 |   €6.62 |                                                               |
-  | Enclosure (JLCPCB)                           |     1    |  €1.78   | €1.78 |   €1.33 |                                                               |
+  | Enclosure (SLA at JLCPCB)                    |     1    |  €1.78   | €1.78 |   €1.33 |                                                               |
   |                                              |          |          |       |         |                                                               |
   |                                              |          |          |€12.40 |  €15.91 |                                                               |
   |                                              |          |          |       |  €28.31 |                                                               |

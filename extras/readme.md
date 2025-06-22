@@ -18,7 +18,7 @@ One shows a simple dashboard, the other a 3D model that moves with the real Nunc
 
 All files are available to make you own Nunchuk adapter for a C64.
 
-![adapter](pcb/cable.jpg)
+![adapter](pcb/cable-v2.jpg)
 
 Schematics, PCB (gerber), casing (STL) and BOM (bill of material).
 

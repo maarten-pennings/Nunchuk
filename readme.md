@@ -4,12 +4,13 @@ An Arduino library to control a Nunchuk.
 
 > It seems [Nunchuk](https://www.nintendo.com/en-gb/Support/Wii/Usage/Nunchuk/Set-Up-and-Use-of-the-Nunchuk/Nunchuk-244185.html) is the official spelling for the game controller, not Nunchu_c_k.
 
-The ultimate goal is to hookup a Nunchuk to a [Commodore 64](#c64).
-
 See a quick demo video with a [dashboard](https://youtu.be/O-drjiKqLoY) or with a [3D view](https://youtu.be/ZG64M4cBJL8).
 
 [![Dashboard in processing](extras/dashboard.png)](https://youtu.be/O-drjiKqLoY) [![Nunchuk viewer in processing](extras/nunchuk_viewer.png)](https://youtu.be/ZG64M4cBJL8)
 
+The ultimate goal is to hookup a Nunchuk to a [Commodore 64](#c64).
+
+![Nunchuk64](extras/pcb/cable2-v2.jpg)
 
 ## Introduction
 
@@ -244,7 +245,9 @@ Note
 ## C64
 
 My ultimate goal was to make a Commodore-64 to Nunchuk adapter.
-You'll find the PCB design also in this [repo](extras/pcb).
+With the library done, the next step is electronics and enclosure.
+You'll find those also in this [repo](extras/pcb).
 
+![Nunchuk64](extras/pcb/powered-v2.jpg)
 
 (end)
