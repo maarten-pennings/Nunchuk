@@ -1,6 +1,6 @@
 # Nunchuk
 
-An Arduino library to control a Nunchuk.
+An Arduino library to control a Nunchuk, with as example, a Nunchuk to Commodore 64 bridge.
 
 > It seems [Nunchuk](https://www.nintendo.com/en-gb/Support/Wii/Usage/Nunchuk/Set-Up-and-Use-of-the-Nunchuk/Nunchuk-244185.html) is the official spelling for the game controller, not Nunchu_c_k.
 
@@ -18,7 +18,7 @@ I found out a Nunchuk is actually an I2C device.
 It has I2C address 0x52 and uses the "standard-mode" bus speed (100kHz).
 It runs on 3.3V - although rumors has it that (cloned?) Nunchuks work on 5V too.
 
-The device needs hardly any I2C writes; controlling it mostly means just I2C reads for the sensors.
+The device needs hardly any I2C writes; control mostly means I2C reads for the state of the sensors.
 The Nunchuk has the following sensors:
  - The Z-button (1 bit).
  - The C-button (1 bit).
@@ -46,7 +46,7 @@ To my surprise my clone is better in _all_ (?) I2C aspects.
 
 The pin-out of the Nunchuk is not hard, but most drawings you find on the internet
 don't tell whether you are looking at the plug of the Nunchuk or the outlet of the Wii controller.
-To avoid all confusion, here a photo of the Nunchuk plug, with the meaning of the pins.
+To avoid all confusion, here a photo of the Nunchuk plug, with the function of the pins.
 Also note the notch on the bottom side, ensuring the plug goes in one-way only.
 
 ![Nunchuk pinout](extras/nunchuk-pinout.jpg)
@@ -109,8 +109,8 @@ To use the library
   }
   ```
 
-- In `loop()` (typically), call `nunchuk_scan()`. 
-  This reads all sensor values from the Nunchuk into the Arduino.
+- In `loop()`, call `nunchuk_scan()`. 
+  This reads all sensor values from the Nunchuk into the micro-controller (ESP).
   This needs to be repeated, to get fresh sensor data.
   A typical responsiveness of a UI is 100ms, so call `nunchuk_scan()` a factor more
   frequent.
@@ -122,7 +122,7 @@ To use the library
 
 - The accelerometer readouts are a bit jumpy (noisy).
   As an extra feature, the library contains a so called low-pass filter (LPF) to mitigate the noisyness.
-  This feature compiutes a sort of an average of the last "n" measurements (for X, Y, and Z).
+  This feature computes a sort of an average of the last "n" measurements (for X, Y, and Z).
   
   To use the low pass filter, the averages needs to be updated; after each
   `nunchuk_scan()` call, also call `nunchuk_lpf(n)`. The parameter `n` must be between 0 and 1024,
@@ -134,7 +134,7 @@ To use the library
 
   ![Accelerometer axis](extras/axis.png)
   
-  Dangerous prototypes has a nice X-ray photo showing how the accelerometer chip is oriented.
+  Dangerous prototypes has a nice X-ray photo showing how the PCB (with the accelerometer chip) is oriented.
   
   ![X-ray from dangerousprototypes](http://dangerousprototypes.com/docs/images/1/14/Wii-nunchuck.jpg)
 
